@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\front\MainController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -32,9 +33,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/product/{product}/unpublish', [ProductController::class, 'unpublish'])->name('product.unpublish');
 
      // Page Module Routes
-     Route::get('page/page-hierarchy', [PageController::class, 'pageHierarchy'])->name('page.page_hierarchy');
-     Route::post('page/update-page-hierarchy', [PageController::class, 'updatePageHierarchy'])->name('page.update_page_hierarchy');
-     Route::resource('page', PageController::class);
+    Route::get('page/page-hierarchy', [PageController::class, 'pageHierarchy'])->name('page.page_hierarchy');
+    Route::post('page/update-page-hierarchy', [PageController::class, 'updatePageHierarchy'])->name('page.update_page_hierarchy');
+    Route::resource('page', PageController::class);
 });
+
+
+Route::get('/home', [MainController::class, 'home'])->name('front.main.home');
+
 
 require __DIR__.'/auth.php';
