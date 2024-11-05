@@ -16,4 +16,9 @@ class MainController extends Controller
 
         return view('front.main.home', compact('products', 'categories'));
     }
+
+    public function product_detail(Product $product)
+    {
+        return view('front.main.product_detail', compact('product'));
+    }
 }

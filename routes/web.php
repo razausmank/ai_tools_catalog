@@ -39,7 +39,5 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/home', [MainController::class, 'home'])->name('front.main.home');
-
 
 require __DIR__.'/auth.php';
